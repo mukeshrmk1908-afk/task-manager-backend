@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rename Task - <%= filename %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-900 text-white min-h-screen">
+    <div class="main w-full min-h-screen p-10 max-w-xl mx-auto">
+        <!-- Back Navigation Link -->
+        <a class="text-blue-500 hover:text-blue-400 inline-flex items-center gap-1 mb-8 text-sm" href="/">
+            &larr; Go back to home
+        </a>
+
+        <h1 class="text-3xl font-semibold tracking-tight text-white mb-6">Rename Task</h1>
+
+        <form action="/edit" method="post" class="space-y-4">
+            <!-- Hidden field for previous filename -->
+            <input type="hidden" name="previous" value="<%= filename %>">
+
+            <div>
+                <label class="block text-xs uppercase tracking-wider text-zinc-400 font-medium mb-1">Current Name</label>
+                <input 
+                    class="block w-full rounded-md outline-none px-4 py-2 bg-zinc-800 text-zinc-400 cursor-not-allowed text-sm" 
+                    type="text" 
+                    value="<%= filename %>" 
+                    disabled
+                >
+            </div>
+
+            <div>
+                <label class="block text-xs uppercase tracking-wider text-zinc-400 font-medium mb-1">New Name</label>
+                <input 
+                    class="block w-full rounded-md outline-none px-4 py-2 bg-zinc-800 text-white placeholder-zinc-500 text-sm focus:ring-2 focus:ring-blue-600" 
+                    type="text" 
+                    placeholder="Enter new filename without .txt" 
+                    name="new" 
+                    required 
+                    autofocus
+                >
+            </div>
+
+            <div class="flex items-center gap-3 pt-2">
+                <input 
+                    class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-md font-medium cursor-pointer text-white text-sm transition" 
+                    type="submit" 
+                    value="Update Name"
+                >
+                <a href="/" class="bg-zinc-800 hover:bg-zinc-700 text-zinc-300 px-5 py-2 rounded-md text-sm transition">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
